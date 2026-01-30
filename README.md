@@ -33,6 +33,8 @@ from the inference backend.
 DraftLock は特定のAIサービスに依存しない設計を意図しています。
 
 現時点では OpenAI API を利用していますが、
+APIキーは、ビルド前にEdit Schemaで設定してください
+![overview](docs/images/overview.png)
 将来的にはローカルLLM（例: llama.cpp 等）を
 バックエンドとして利用できる構成も視野に入れています。
 
