@@ -1,0 +1,11 @@
+
+# Xcode user data (per-user)
+xcuserdata/
+*.xcuserdatad/
+
+# local review artifacts
+review.patch
+review.status.txt
+
+# macOS
+.DS_Store
