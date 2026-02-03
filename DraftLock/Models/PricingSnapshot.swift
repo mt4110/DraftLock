@@ -1,6 +1,6 @@
 import Foundation
 
-struct PricingSnapshot: Codable {
+struct LegacyPricingSnapshot: Codable {
     var model: String
 
     /// USD per 1 token.
@@ -19,10 +19,10 @@ struct PricingSnapshot: Codable {
     }
 }
 
-extension PricingSnapshot {
+extension LegacyPricingSnapshot {
     /// Default pricing table (USD) based on OpenAI model docs.
     /// Keep this table in sync as pricing changes.
-    static func defaultUSD(for model: ModelType, takenAt: Date = Date()) -> PricingSnapshot {
+    static func defaultUSD(for model: ModelType, takenAt: Date = Date()) -> LegacyPricingSnapshot {
         // Prices below are "per 1M tokens" converted to "per 1 token".
         // gpt-4o:     $2.50 / $10.00
         // gpt-4o-mini:$0.15 / $0.60
@@ -39,7 +39,7 @@ extension PricingSnapshot {
             }
         }()
 
-        return PricingSnapshot(
+        return LegacyPricingSnapshot(
             model: model.rawValue,
             inputUnitPrice: inPerM / perMillion,
             outputUnitPrice: outPerM / perMillion,
