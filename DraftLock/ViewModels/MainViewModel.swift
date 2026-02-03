@@ -112,7 +112,7 @@ final class MainViewModel: ObservableObject {
                 outputText = text.isEmpty ? "(no output)" : text
 
                 // Ledger (actual usage)
-                let pricing = PricingSnapshot(model: selectedModel.rawValue, inputUnitPrice: 0, outputUnitPrice: 0, currency: "USD", takenAt: Date())
+                let pricing = LegacyPricingSnapshot(model: selectedModel.rawValue, inputUnitPrice: 0, outputUnitPrice: 0, currency: "USD", takenAt: Date())
                 let entry = UsageEntry(
                     id: UUID(),
                     date: Date(),
@@ -195,7 +195,7 @@ final class MainViewModel: ObservableObject {
             )
             let tokens = try await OpenAIClient.shared.estimateInputTokens(apiKey: apiKey, request: request)
 
-            let pricing = PricingSnapshot(model: selectedModel.rawValue, inputUnitPrice: 0, outputUnitPrice: 0, currency: "USD", takenAt: Date())
+            let pricing = LegacyPricingSnapshot(model: selectedModel.rawValue, inputUnitPrice: 0, outputUnitPrice: 0, currency: "USD", takenAt: Date())
             // prediction: input-only (output unknown)
             let estCost = pricing.estimateCost(inputTokens: tokens, outputTokens: 0)
             underBar.updateEstimate(inputTokens: tokens, estimatedCost: estCost, currency: pricing.currency)

@@ -9,3 +9,6 @@ review.status.txt
 
 # macOS
 .DS_Store
+
+# Local tool outputs
+.local/

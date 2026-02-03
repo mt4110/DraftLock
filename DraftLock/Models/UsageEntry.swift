@@ -15,5 +15,5 @@ struct UsageEntry: Identifiable, Codable {
     var outputTokens: Int
 
     /// Pricing at the time of the request (local estimate).
-    var pricing: PricingSnapshot
+    var pricing: LegacyPricingSnapshot
 }
